@@ -24,7 +24,6 @@ namespace SpecSnifferWPF
         public MainWindow()
         {
             InitializeComponent();
-
         }
     }
 }

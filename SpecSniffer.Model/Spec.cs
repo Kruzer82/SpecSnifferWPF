@@ -20,7 +20,7 @@
 
         public string DiskSerial { get; set; }
 
-        public string Size { get; set; }
+        public string Diagonal { get; set; }
 
         public string Resolution { get; set; }
 
