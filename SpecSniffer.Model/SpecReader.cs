@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpecSniffer.Model
 {
     public class SpecReader
     {
-        public Spec CurrentSpec { get; set; } = new Spec();
+        public  Spec CurrentSpec { get; set; } = new Spec();
 
         public SpecReader()
         {

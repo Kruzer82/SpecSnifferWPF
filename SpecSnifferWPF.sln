@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecSniffer.Model", "SpecSn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecSniffer.Tests", "SpecSniffer.Tests\SpecSniffer.Tests.csproj", "{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecSniffer.ViewModel", "SpecSniffer.ViewModel\SpecSniffer.ViewModel.csproj", "{9685FA48-A3D7-4299-B3B0-832E6AE240F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9685FA48-A3D7-4299-B3B0-832E6AE240F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9685FA48-A3D7-4299-B3B0-832E6AE240F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9685FA48-A3D7-4299-B3B0-832E6AE240F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9685FA48-A3D7-4299-B3B0-832E6AE240F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
