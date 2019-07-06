@@ -172,9 +172,24 @@
                                 </StackPanel>
 
 
-
                                 <Label Content="Comments"  Style="{StaticResource SpecLabel}" HorizontalAlignment="Left"/>
                                 <TextBox Height="90" Margin="5" Width="400" TextWrapping="Wrap" AcceptsReturn="True" FontSize="16"/>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                    <Label Content="License Label"  Style="{StaticResource SpecLabel}" HorizontalAlignment="Left"/>
+                                    <ComboBox Width="294"  Margin="10,0,5,0" FontSize="16">
+                                        <ComboBoxItem FontSize="16">Win10Pro CMAR</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win10Pro RRPC</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win10Pro OEM</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win10Home CMAR</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win10Home OEM</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win7Pro</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win7HP</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Win8</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">NoCOA</ComboBoxItem>
+                                    </ComboBox>
+                                </StackPanel>
+
 
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
                                     <Label Content="Save Action:" Margin="0,0,5,0" Style="{StaticResource SpecLabel}" />

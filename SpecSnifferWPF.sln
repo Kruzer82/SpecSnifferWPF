@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecSnifferWPF", "SpecSnifferWPF\SpecSnifferWPF.csproj", "{A579750E-84EA-47CF-961D-CDEE0A45CA6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecSniffer.Model", "SpecSniffer.Model\SpecSniffer.Model.csproj", "{1F61538D-DB84-4110-B53E-160F12E5E59E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecSniffer.Tests", "SpecSniffer.Tests\SpecSniffer.Tests.csproj", "{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A579750E-84EA-47CF-961D-CDEE0A45CA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A579750E-84EA-47CF-961D-CDEE0A45CA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A579750E-84EA-47CF-961D-CDEE0A45CA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F61538D-DB84-4110-B53E-160F12E5E59E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F61538D-DB84-4110-B53E-160F12E5E59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F61538D-DB84-4110-B53E-160F12E5E59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F61538D-DB84-4110-B53E-160F12E5E59E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B460D5-A1D3-4531-9AED-BA51D0F35BB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
