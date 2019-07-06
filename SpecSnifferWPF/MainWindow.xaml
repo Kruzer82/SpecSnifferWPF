@@ -1,0 +1,69 @@
+﻿<Window x:Class="SpecSnifferWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpecSnifferWPF"
+        mc:Ignorable="d"
+        Title="SpecSniffer" Height="720" Width="1010">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="589*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" />
+                    <MenuItem Header="_Open" />
+                    <MenuItem Header="_Save" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="309*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+        </Grid>
+        <Viewbox Grid.Row="1">
+            <TextBlock Margin="5"> E7440 i7-4600M/16GB4/250SSD/512SSD/DVD/15.6FHD/K2000M</TextBlock>
+        </Viewbox>
+
+        <TabControl TabStripPlacement="Left" Grid.Row="2">
+            <TabItem Header="Spec" FontSize="16" MinWidth="120"></TabItem>
+            <TabItem Header="Drivers" FontSize="16" MinWidth="120"></TabItem>
+            <TabItem Header="Log" FontSize="16" MinWidth="120"></TabItem>
+            <TabItem Header="Licenses" FontSize="16" MinWidth="120"></TabItem>
+            <TabItem MinWidth="120">
+                <TabItem.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="16" Margin="0,0,0,5" HorizontalAlignment="Center">Diagnostics</TextBlock>
+                        <TextBlock>Batt. Capacity 100%</TextBlock>
+                        <TextBlock>Batt. Charge 100%</TextBlock>
+                        <TextBlock>Charge Rate 100%</TextBlock>
+                        <TextBlock>Drivers status: Error</TextBlock>
+                        <TextBlock>Disk status: Error</TextBlock>
+                        <TextBlock>Internet: Error</TextBlock>
+                        <TextBlock>MySQL: Error</TextBlock>
+                        <TextBlock>Drivers Server: Error</TextBlock>
+
+
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
