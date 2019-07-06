@@ -7,6 +7,36 @@
         mc:Ignorable="d"
         Title="SpecSniffer" Height="720" Width="1010">
 
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="MinWidth" Value="180"/>
+            <Setter Property="FontFamily" Value="Leelawadee UI Semilight"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="SpecTxtBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Padding" Value="0"/>
+
+            <Setter Property="Margin" Value="10,5,0,0"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="SpecLabel">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="10,5,0,0"/>
+        </Style>
+    </Window.Resources>
     <Grid>
 
         <Grid.RowDefinitions>
@@ -15,55 +45,181 @@
             <RowDefinition Height="589*"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_New" />
-                    <MenuItem Header="_Open" />
-                    <MenuItem Header="_Save" />
-                    <Separator />
-                    <MenuItem Header="_Exit" />
-                </MenuItem>
-            </Menu>
-            <TextBox AcceptsReturn="True" />
-        </DockPanel>
 
+        <Menu Grid.Row="0" DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+        </Menu>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="309*"/>
             </Grid.ColumnDefinitions>
-
-
-
         </Grid>
         <Viewbox Grid.Row="1">
-            <TextBlock Margin="5"> E7440 i7-4600M/16GB4/250SSD/512SSD/DVD/15.6FHD/K2000M</TextBlock>
+            <TextBlock Margin="45,0,45,0" FontFamily="Leelawadee UI Semilight"> E7440  i7-4600M/16GB4/250SSD/512SSD/DVD/15.6FHD/K2000M</TextBlock>
         </Viewbox>
 
+
         <TabControl TabStripPlacement="Left" Grid.Row="2">
-            <TabItem Header="Spec" FontSize="16" MinWidth="120"></TabItem>
-            <TabItem Header="Drivers" FontSize="16" MinWidth="120"></TabItem>
-            <TabItem Header="Log" FontSize="16" MinWidth="120"></TabItem>
-            <TabItem Header="Licenses" FontSize="16" MinWidth="120"></TabItem>
-            <TabItem MinWidth="120">
-                <TabItem.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="16" Margin="0,0,0,5" HorizontalAlignment="Center">Diagnostics</TextBlock>
-                        <TextBlock>Batt. Capacity 100%</TextBlock>
-                        <TextBlock>Batt. Charge 100%</TextBlock>
-                        <TextBlock>Charge Rate 100%</TextBlock>
-                        <TextBlock>Drivers status: Error</TextBlock>
-                        <TextBlock>Disk status: Error</TextBlock>
-                        <TextBlock>Internet: Error</TextBlock>
-                        <TextBlock>MySQL: Error</TextBlock>
-                        <TextBlock>Drivers Server: Error</TextBlock>
+
+            <TabItem Header="Spec" >
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    
+                    <Border Grid.Column="0" Margin="10,10,10,10" Background="#FFD7D8D8">
+                        <Border.DataContext>
+                            <local:ForTestOnly/>
+                        </Border.DataContext>
+
+                        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <StackPanel>
 
 
-                    </StackPanel>
-                </TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Model:"  Style="{StaticResource SpecLabel}" />
+                                    <TextBox Text="E7440" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Serial Number:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="S1G00V8SJN26D" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal"  Margin="0,20,0,0">
+                                    <Label Content="Processor:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="i7-4600M @ 3.6Ghz" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="RAM:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="16GB (2+2+2+2+2+2+2+2)" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                    <Label Content="Optical Drive:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="DVD-RW" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Disk Size:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="{Binding Storage}" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Disk Model:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="{Binding Name}"  Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                    <Label Content="Diagonal:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="15.6" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Resolution:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="FHD" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="GPU:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="{Binding Gpu}" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                    <Label Content="Installed OS:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="Windows 10 Pro" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="OS Version:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="19874" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="OS Lang.:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="PL" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+                                
+                                <!--Label is for set desired fontsize in viewbox -->
+                                <Label Margin="0,0,370,0" Height="10"/>
+
+                            </StackPanel>
+
+                        </Viewbox>
+
+                    </Border>
+
+                    <Border Grid.Column="1" Margin="10,10,10,10" Background="#FFD7D8D8">
+                        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="RP:"  Style="{StaticResource SpecLabel}" />
+                                    <TextBox Width="100" Padding="0,2,0,2" Background="White" BorderThickness="1" BorderBrush="SlateGray" Style="{StaticResource SpecTxtBox}"/>
+                                    <Label Content="Save ID:"  Style="{StaticResource SpecLabel}" />
+                                    <TextBox Width="100" Padding="0,2,0,2" Background="White" BorderThickness="1" BorderBrush="SlateGray" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
+
+
+                                <Label Content="Comments"  Style="{StaticResource SpecLabel}" HorizontalAlignment="Left"/>
+                                <TextBox Height="90" Margin="5" Width="400" TextWrapping="Wrap" AcceptsReturn="True" FontSize="16"/>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+                                    <Label Content="Save Action:" Margin="0,0,5,0" Style="{StaticResource SpecLabel}" />
+                                    <ComboBox Width="120"  Margin="0,0,5,0" FontSize="16">
+                                        <ComboBoxItem FontSize="16">SO</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">PO</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">RMA</ComboBoxItem>
+                                        <ComboBoxItem FontSize="16">Other</ComboBoxItem>
+                                    </ComboBox>
+
+                                </StackPanel>
+                                <Button x:Name="SaveSpec" Content="Save" Width="120" Height="40" HorizontalAlignment="Right"  Margin="0,5,5,0"/>
+                                <CheckBox Content="Remember ID" FontSize="16" HorizontalAlignment="Right" Width="126" Margin="0,5,0,0"/>
+                                <CheckBox Content="Remember RP" FontSize="16" HorizontalAlignment="Right" Width="126" />
+                            </StackPanel>
+                            
+                        </Viewbox>
+                    </Border>
+
+                </Grid>
             </TabItem>
 
+            <TabItem Header="Drivers"></TabItem>
+            
+            <TabItem Header="Log">
+                
+                
+            </TabItem>
+            <TabItem Header="Licenses"></TabItem>
+            <TabItem Header="Diagnostics"></TabItem>
+
         </TabControl>
+
+        <StackPanel 
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Height="210" Width="180" Margin="5,190,0,0" Grid.Row="2">
+
+            <TextBlock>Batt. Capacity 100%</TextBlock>
+            <TextBlock>Batt. Charge 100%</TextBlock>
+            <TextBlock>Charge Rate 100%</TextBlock>
+            <TextBlock>Drivers status: Error</TextBlock>
+            <TextBlock>Disk status: Error</TextBlock>
+            <TextBlock>Internet: Error</TextBlock>
+            <TextBlock>MySQL: Error</TextBlock>
+            <TextBlock>Drivers Server: Error</TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
