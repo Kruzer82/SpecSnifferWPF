@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpecSniffer.ViewModel\SpecSniffer.ViewModel.csproj">
+      <Project>{9685fa48-a3d7-4299-b3b0-832e6ae240f8}</Project>
+      <Name>SpecSniffer.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
