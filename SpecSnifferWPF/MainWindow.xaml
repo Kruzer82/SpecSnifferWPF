@@ -12,7 +12,7 @@
         <Style TargetType="TabItem">
             <Setter Property="MinWidth" Value="180"/>
             <Setter Property="FontFamily" Value="Leelawadee UI Semilight"/>
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
         <Style TargetType="TextBlock">
@@ -29,7 +29,7 @@
 
             <Setter Property="Margin" Value="10,5,0,0"/>
         </Style>
-        
+
         <Style TargetType="Label" x:Key="SpecLabel">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
@@ -48,7 +48,6 @@
             <RowDefinition Height="589*"/>
         </Grid.RowDefinitions>
 
-
         <Menu Grid.Row="0" DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_New" />
@@ -58,16 +57,10 @@
                 <MenuItem Header="_Exit" />
             </MenuItem>
         </Menu>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="309*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <Viewbox Grid.Row="1">
-            <TextBlock Text="{Binding ViewSpec.SummarySpec}" Margin="45,0,45,0" FontFamily="Leelawadee UI Semilight"/>
-        </Viewbox>
 
+        <Viewbox Grid.Row="1">
+            <TextBlock Text="{Binding ViewSpec.SummarySpec}" Margin="0,7,0,7" FontFamily="Leelawadee UI Semilight"/>
+        </Viewbox>
 
         <TabControl TabStripPlacement="Left" Grid.Row="2">
 
@@ -78,12 +71,9 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
-                    
+
+
                     <Border Grid.Column="0" Margin="10,10,10,10" Background="#FFD7D8D8">
-                        <!--<Border.DataContext>
-                            <vm:DisplayedSpec/>
-                        </Border.DataContext>-->
 
                         <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
                             <StackPanel>
@@ -92,12 +82,12 @@
                                     <Label Content="Device Type:"  Style="{StaticResource SpecLabel}" />
                                     <TextBox Text="{Binding ViewSpec.DeviceType}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
-                                
+
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Manufacturer:"  Style="{StaticResource SpecLabel}" />
                                     <TextBox Text="{Binding ViewSpec.Manufacturer}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
-                                
+
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Model:"  Style="{StaticResource SpecLabel}" />
                                     <TextBox Text="{Binding ViewSpec.Model}" Style="{StaticResource SpecTxtBox}"/>
@@ -122,7 +112,7 @@
                                     <Label Content="Optical Drive:"  Style="{StaticResource SpecLabel}"/>
                                     <TextBox Text="{Binding ViewSpec.Optical}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
-                                
+
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Disk Size:"  Style="{StaticResource SpecLabel}"/>
                                     <TextBox Text="{Binding ViewSpec.DiskSize}" Style="{StaticResource SpecTxtBox}"/>
@@ -162,8 +152,12 @@
                                     <Label Content="OS Lang.:"  Style="{StaticResource SpecLabel}"/>
                                     <TextBox Text="{Binding ViewSpec.LangOS}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
-                                
-                                <!--Label is for set desired fontsize in viewbox -->
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="OS Key:"  Style="{StaticResource SpecLabel}"/>
+                                    <TextBox Text="{Binding ViewSpec.OsKey}" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+
                                 <Label Margin="0,0,370,0" Height="10"/>
 
                             </StackPanel>
@@ -175,7 +169,7 @@
                     <Border Grid.Column="1" Margin="10,10,10,10" Background="#FFD7D8D8">
                         <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
                             <StackPanel>
-                                
+
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="RP:"  Style="{StaticResource SpecLabel}" />
                                     <TextBox Width="100" Padding="0,2,0,2" Background="White" BorderThickness="1" BorderBrush="SlateGray" Style="{StaticResource SpecTxtBox}"/>
@@ -217,7 +211,7 @@
                                 <CheckBox Content="Remember ID" FontSize="16" HorizontalAlignment="Right" Width="126" Margin="0,5,0,0"/>
                                 <CheckBox Content="Remember RP" FontSize="16" HorizontalAlignment="Right" Width="126" />
                             </StackPanel>
-                            
+
                         </Viewbox>
                     </Border>
 
@@ -225,10 +219,10 @@
             </TabItem>
 
             <TabItem Header="Drivers"></TabItem>
-            
+
             <TabItem Header="Log">
-                
-                
+
+
             </TabItem>
             <TabItem Header="Licenses"></TabItem>
             <TabItem Header="Diagnostics"></TabItem>
@@ -237,7 +231,7 @@
 
         <StackPanel 
             HorizontalAlignment="Left" VerticalAlignment="Top" 
-            Height="210" Width="180" Margin="5,190,0,0" Grid.Row="2">
+            Height="180" Width="180" Margin="10,155,0,0" Grid.Row="2">
 
             <TextBlock>Batt. Capacity 100%</TextBlock>
             <TextBlock>Batt. Charge 100%</TextBlock>

@@ -31,7 +31,8 @@ namespace SpecSniffer.Tests
                 GPU = $"NVIDIA Quadro M1000M{Environment.NewLine}Intel(R) HD Graphics 530",
                 InstalledOS = "Win10 Pro",
                 VerOS = "18362",
-                LangOS = "PL"
+                LangOS = "PL",
+                OsKey= "2NG2R-HRCYB-3J9YB-CG7MP-HH7CP"
             };
             actualSpec = displayedSpec.ViewSpec;
 
@@ -53,6 +54,7 @@ namespace SpecSniffer.Tests
             Assert.AreEqual(expectedSpec.InstalledOS, actualSpec.InstalledOS, "InstalledOS value not equal.");
             Assert.AreEqual(expectedSpec.VerOS, actualSpec.VerOS, "VerOS value not equal.");
             Assert.AreEqual(expectedSpec.LangOS, actualSpec.LangOS, "LangOS value not equal.");
+            Assert.AreEqual(expectedSpec.OsKey, actualSpec.OsKey, "OsKey value not equal.");
         }
     }
 }

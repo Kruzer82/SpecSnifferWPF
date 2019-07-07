@@ -167,7 +167,6 @@ namespace SpecSniffer.Model
 
         public string LangOS { get; set; }
 
-
         public string SummarySpec
         {
             get
@@ -180,6 +179,8 @@ namespace SpecSniffer.Model
                     $"{Diagonal}{Resolution}";
             }
         }
+
+        public string OsKey { get; set; }
 
         public Spec()
         {
