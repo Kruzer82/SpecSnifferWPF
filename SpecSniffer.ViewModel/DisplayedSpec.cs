@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace SpecSniffer.ViewModel
 {
-    public class SpecViewModel
+    public class DisplayedSpec
     {
-        public Spec ViewModelSpec { get; set; }
+        public Spec ViewSpec { get; set; }
 
 
-        public SpecViewModel()
+        public DisplayedSpec()
         {
             SpecReader specReader = new SpecReader();
-            ViewModelSpec = specReader.CurrentSpec;
+            ViewSpec = specReader.CurrentSpec;
         }
     }
 }

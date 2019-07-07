@@ -1,44 +1,42 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpecSniffer.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SpecSniffer.ViewModel;
 
 namespace SpecSniffer.Tests
 {
     [TestClass()]
-    public class SpecReaderTests
+    public class DisplayedSpecTests
     {
         [TestMethod()]
-        public void CurrentSpecValuesTest()
+        public void ViewSpecValuesTest()
         {
-            SpecReader specReader = new SpecReader();
+
             Spec expectedSpec;
             Spec actualSpec;
-
-            expectedSpec = new Spec() {
+            DisplayedSpec displayedSpec = new DisplayedSpec();
+            expectedSpec = new Spec()
+            {
                 Manufacturer = "LENOVO",
-                Model = "ThinkPad P50",
-                Serial= "S120en0005mbPC0C3D4N",
-                Processor= "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz",
-                Ram="16GB (8+8)",
-                Optical="",
-                DiskName= "INTEL SSDPEKKF256G7H",
-                DiskSize="256SSD",
-                DiskSerial= "0000_0000_0100_0000_E4D2_5C1E_9BE4_4E01.",
-                Diagonal=$@"23""",
-                Resolution="FHD",
-                GPU= "NVIDIA Quadro M1000M/Intel(R) HD Graphics 530",
-                InstalledOS= "Microsoft Windows 10 Pro",
-                VerOS= "18362",
-                LangOS="PL"
+                Model = "P50",
+                Serial = "S120en0005mbPC0C3D4N",
+                Processor = "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz",
+                Ram = "16GB (8+8)",
+                Optical = "",
+                DiskName = "INTEL SSDPEKKF256G7H",
+                DiskSize = "256SSD",
+                DiskSerial = "0000_0000_0100_0000_E4D2_5C1E_9BE4_4E01.",
+                Diagonal = $@"23""",
+                Resolution = "FHD",
+                GPU = "NVIDIA Quadro M1000M/Intel(R) HD Graphics 530",
+                InstalledOS = "Microsoft Windows 10 Pro",
+                VerOS = "18362",
+                LangOS = "PL"
             };
-            actualSpec = specReader.CurrentSpec;
+            actualSpec = displayedSpec.ViewSpec;
+
 
             Assert.AreEqual(expectedSpec.Manufacturer, actualSpec.Manufacturer, "Manufacturer value not equal.");
-            Assert.AreEqual(expectedSpec.Model, actualSpec.Model,"Model value not equal.");
+            Assert.AreEqual(expectedSpec.Model, actualSpec.Model, "Model value not equal.");
             Assert.AreEqual(expectedSpec.Serial, actualSpec.Serial, "Serial value not equal.");
             Assert.AreEqual(expectedSpec.Processor, actualSpec.Processor, "Processor value not equal.");
             Assert.AreEqual(expectedSpec.Ram, actualSpec.Ram, "Ram value not equal.");
@@ -55,8 +53,5 @@ namespace SpecSniffer.Tests
             Assert.AreEqual(expectedSpec.VerOS, actualSpec.VerOS, "VerOS value not equal.");
             Assert.AreEqual(expectedSpec.LangOS, actualSpec.LangOS, "LangOS value not equal.");
         }
-
-
-
     }
 }

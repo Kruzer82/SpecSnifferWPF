@@ -80,7 +80,7 @@
                     
                     <Border Grid.Column="0" Margin="10,10,10,10" Background="#FFD7D8D8">
                         <Border.DataContext>
-                            <vm:SpecViewModel/>
+                            <vm:DisplayedSpec/>
                         </Border.DataContext>
 
                         <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -89,67 +89,67 @@
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Model:"  Style="{StaticResource SpecLabel}" />
-                                    <TextBox Text="{Binding ViewModelSpec.Model}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Model}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Serial Number:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.Serial}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Serial}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal"  Margin="0,20,0,0">
                                     <Label Content="Processor:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.Processor}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Processor}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="RAM:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.Ram}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Ram}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                                     <Label Content="Optical Drive:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.Optical}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Optical}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
                                 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Disk Size:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.DiskSize}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.DiskSize}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Disk Model:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.DiskName}"  Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.DiskName}"  Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                                     <Label Content="Size:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.Diagonal}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Diagonal}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Resolution:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.Resolution}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Resolution}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="GPU:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.GPU}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.GPU}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                                     <Label Content="Installed OS:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.InstalledOS}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.InstalledOS}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="OS Version:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.VerOS}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.VerOS}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="OS Lang.:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewModelSpec.LangOS}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.LangOS}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
                                 
                                 <!--Label is for set desired fontsize in viewbox -->
