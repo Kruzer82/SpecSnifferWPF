@@ -11,13 +11,14 @@ namespace SpecSniffer.Model
 
         public SpecReader()
         {
+            GetDeviceType();
             GetManufacturerModelSerial();
 
             CurrentSpec.Processor= GetFromWmi("root\\CIMV2", "Win32_Processor", "Name");
             GetRam();
             CurrentSpec.Optical = GetFromWmi("root\\CIMV2", "Win32_CDROMDrive", "MediaType");
             GetDisk();
-            GetDeviceSize();
+            GetDiagonal();
             GetResolution();
             CurrentSpec.GPU = GetFromWmi("root\\CIMV2", "Win32_VideoController", "Caption");
             GetOS();
@@ -25,7 +26,23 @@ namespace SpecSniffer.Model
 
 
 
-
+        private void GetDeviceType()
+        {
+            try
+            {
+                foreach (var query in new ManagementObjectSearcher("root\\CIMV2",
+                                 $"SELECT ChassisTypes " +
+                                 $"FROM Win32_SystemEnclosure").Get())
+                {
+                    UInt16[] chassis = ((UInt16[])query["ChassisTypes"]);
+                    CurrentSpec.DeviceType = string.Join("/", chassis);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         private void GetManufacturerModelSerial()
         {
@@ -76,7 +93,7 @@ namespace SpecSniffer.Model
         }
 
         /// <summary>
-        /// Method cant check disk type(HDD or SSD) but can better filter external drives.
+        /// This method cant check disk type(HDD or SSD) but can better filter external drives.
         /// (due some of external USB adapters are not displaying as USB but as SCSI)
         /// </summary>
         //private void GetDisk()
@@ -142,15 +159,15 @@ namespace SpecSniffer.Model
             }
             catch (Exception)
             {
-
+                throw;
             }
 
-            CurrentSpec.DiskSize = string.Join("/", hddSize);
-            CurrentSpec.DiskName = string.Join("/", hddModel);
-            CurrentSpec.DiskSerial = string.Join("/", hddSerial);
+            CurrentSpec.DiskSize = string.Join(Environment.NewLine, hddSize);
+            CurrentSpec.DiskName = string.Join(Environment.NewLine, hddModel);
+            CurrentSpec.DiskSerial = string.Join(Environment.NewLine, hddSerial);
         }
 
-        private void GetDeviceSize()
+        private void GetDiagonal()
         {
             double verticalSize = 0;
             double horizontalSize = 0;
@@ -177,6 +194,7 @@ namespace SpecSniffer.Model
             }
             catch (Exception)
             {
+                throw;
 
             }
 
@@ -235,6 +253,7 @@ namespace SpecSniffer.Model
             }
             catch (Exception)
             {
+                throw;
 
             }
 
@@ -264,7 +283,8 @@ namespace SpecSniffer.Model
             }
             catch (Exception)
             {
-                //ignored
+                throw;
+
             }
         }
 
@@ -283,10 +303,11 @@ namespace SpecSniffer.Model
             }
             catch (Exception)
             {
-                //ignored
+                throw;
+
             }
 
-            return string.Join("/", propertyValue);
+            return string.Join(Environment.NewLine, propertyValue);
         }
     }
 }

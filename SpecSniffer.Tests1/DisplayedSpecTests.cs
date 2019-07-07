@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpecSniffer.Model;
 using SpecSniffer.ViewModel;
+using System;
 
 namespace SpecSniffer.Tests
 {
@@ -19,7 +20,7 @@ namespace SpecSniffer.Tests
                 Manufacturer = "LENOVO",
                 Model = "P50",
                 Serial = "S120en0005mbPC0C3D4N",
-                Processor = "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz",
+                Processor = "i7-6700HQ CPU @ 2.60GHz",
                 Ram = "16GB (8+8)",
                 Optical = "",
                 DiskName = "INTEL SSDPEKKF256G7H",
@@ -27,8 +28,8 @@ namespace SpecSniffer.Tests
                 DiskSerial = "0000_0000_0100_0000_E4D2_5C1E_9BE4_4E01.",
                 Diagonal = $@"23""",
                 Resolution = "FHD",
-                GPU = "NVIDIA Quadro M1000M/Intel(R) HD Graphics 530",
-                InstalledOS = "Microsoft Windows 10 Pro",
+                GPU = $"NVIDIA Quadro M1000M{Environment.NewLine}Intel(R) HD Graphics 530",
+                InstalledOS = "Windows 10 Pro",
                 VerOS = "18362",
                 LangOS = "PL"
             };

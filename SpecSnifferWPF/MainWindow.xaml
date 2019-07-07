@@ -86,7 +86,16 @@
                         <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
                             <StackPanel>
 
-
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Device Type:"  Style="{StaticResource SpecLabel}" />
+                                    <TextBox Text="{Binding ViewSpec.DeviceType}" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Manufacturer:"  Style="{StaticResource SpecLabel}" />
+                                    <TextBox Text="{Binding ViewSpec.Manufacturer}" Style="{StaticResource SpecTxtBox}"/>
+                                </StackPanel>
+                                
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Model:"  Style="{StaticResource SpecLabel}" />
                                     <TextBox Text="{Binding ViewSpec.Model}" Style="{StaticResource SpecTxtBox}"/>

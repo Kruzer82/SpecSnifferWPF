@@ -45,5 +45,26 @@ namespace SpecSniffer.Tests
             Assert.AreEqual(fujitsuModel, specFujitsu.Model);
             Assert.AreEqual(otherModel, specOther.Model);
         }
+
+        [TestMethod()]
+        public void SetDeviceTypeValueTest()
+        {
+            Spec singleType = new Spec();
+            Spec doubleType = new Spec();
+            Spec multiType = new Spec();
+
+            singleType.DeviceType = "9";
+            doubleType.DeviceType = "1/10";
+            multiType.DeviceType = "1/10/24/2/13";
+
+            string singleTypeExpected = "Laptop";
+            string doubleTypeExpected = "Other/Notebook";
+            string multiTypeExpected = "Other/Notebook/Sealed-Case PC/Unknown/All in One";
+
+            Assert.AreEqual(singleTypeExpected, singleType.DeviceType);
+            Assert.AreEqual(doubleTypeExpected, doubleType.DeviceType);
+            Assert.AreEqual(multiTypeExpected, multiType.DeviceType);
+
+        }
     }
 }
