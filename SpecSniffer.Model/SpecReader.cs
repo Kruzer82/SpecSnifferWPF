@@ -162,9 +162,9 @@ namespace SpecSniffer.Model
                 throw;
             }
 
-            CurrentSpec.DiskSize = string.Join("/", hddSize);
-            CurrentSpec.DiskName = string.Join("/", hddModel);
-            CurrentSpec.DiskSerial = string.Join("/", hddSerial);
+            CurrentSpec.DiskSize = string.Join(Environment.NewLine, hddSize);
+            CurrentSpec.DiskName = string.Join(Environment.NewLine, hddModel);
+            CurrentSpec.DiskSerial = string.Join(Environment.NewLine, hddSerial);
         }
 
         private void GetDiagonal()
@@ -307,7 +307,7 @@ namespace SpecSniffer.Model
 
             }
 
-            return string.Join("/", propertyValue);
+            return string.Join(Environment.NewLine, propertyValue);
         }
     }
 }

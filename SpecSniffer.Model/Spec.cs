@@ -175,8 +175,8 @@ namespace SpecSniffer.Model
                 return $"{Model}  " +
                     $"{Processor.Remove(Processor.IndexOf("@")).Trim()}/" +
                     $"{Ram.Remove(Ram.IndexOf("(")).Trim()}/" +
-                    $"{DiskSize.Replace("/", Environment.NewLine)}/" +
-                    $"{Optical}/" +
+                    $"{DiskSize.Replace(Environment.NewLine, "/")}/" +
+                    $"{Optical.Replace(Environment.NewLine, "/")}/" +
                     $"{Diagonal}{Resolution}";
             }
         }
