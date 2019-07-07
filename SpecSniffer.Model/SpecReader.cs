@@ -23,6 +23,7 @@ namespace SpecSniffer.Model
             CurrentSpec.Gpu = GetFromWmi("root\\CIMV2", "Win32_VideoController", "Caption");
             GetOS();
             CurrentSpec.OsKey = GetFromWmi("root\\CIMV2", "SoftwareLicensingService", "OA3xOriginalProductKey");
+            GetDeviceManagerItems();
         }
 
 
@@ -293,6 +294,27 @@ namespace SpecSniffer.Model
                 throw;
 
             }
+        }
+
+        public void GetDeviceManagerItems()
+        {
+            List<string> DeviceList = new List<string>();
+            try
+            {
+                foreach (var queryObj in new ManagementObjectSearcher("root\\CIMV2",
+                    $"SELECT Status,Caption " +
+                    $"FROM Win32_PnPEntity").Get())
+                {
+                    DeviceList.Add($"{(string)queryObj["Caption"]} [{(string)queryObj["Status"]}]");
+                }
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            CurrentSpec.DeviceManager = string.Join("/", DeviceList);
         }
 
         private string GetFromWmi(string scopeNamespace, string scopeClass, string scopeProperty)
