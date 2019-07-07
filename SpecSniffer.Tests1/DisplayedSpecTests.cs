@@ -28,7 +28,7 @@ namespace SpecSniffer.Tests
                 DiskSerial = "0000_0000_0100_0000_E4D2_5C1E_9BE4_4E01.",
                 Diagonal = $@"23""",
                 Resolution = "FHD",
-                GPU = $"NVIDIA Quadro M1000M{Environment.NewLine}Intel(R) HD Graphics 530",
+                Gpu = $"NVIDIA Quadro M1000M{Environment.NewLine}Intel(R) HD Graphics 530",
                 InstalledOS = "Win10 Pro",
                 VerOS = "18362",
                 LangOS = "PL",
@@ -49,7 +49,7 @@ namespace SpecSniffer.Tests
             Assert.AreEqual(expectedSpec.DiskSerial, actualSpec.DiskSerial, "DiskSerial value not equal.");
             Assert.AreEqual(expectedSpec.Diagonal, actualSpec.Diagonal, "Diagonal value not equal.");
             Assert.AreEqual(expectedSpec.Resolution, actualSpec.Resolution, "Resolution value not equal.");
-            Assert.AreEqual(expectedSpec.GPU, actualSpec.GPU, "GPU value not equal.");
+            Assert.AreEqual(expectedSpec.Gpu, actualSpec.Gpu, "GPU value not equal.");
 
             Assert.AreEqual(expectedSpec.InstalledOS, actualSpec.InstalledOS, "InstalledOS value not equal.");
             Assert.AreEqual(expectedSpec.VerOS, actualSpec.VerOS, "VerOS value not equal.");

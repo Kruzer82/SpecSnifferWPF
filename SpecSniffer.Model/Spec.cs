@@ -1,17 +1,31 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace SpecSniffer.Model
 {
-    public class Spec
+    public class Spec : INotifyPropertyChanged
     {
         private string model;
 
         private string deviceType;
         private string processor;
         private string installedOS;
+        private string manufacturer;
+        private string serial;
+        private string ram;
+        private string optical;
+        private string diskSize;
+        private string diskName;
+        private string diskSerial;
+        private string diagonal;
+        private string resolution;
+        private string gpu;
+        private string verOS;
+        private string langOS;
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string DeviceType
         {
@@ -47,10 +61,23 @@ namespace SpecSniffer.Model
                 deviceTypeSB.Replace("1", "Other");
 
                 deviceType = deviceTypeSB.ToString();
+
+                RaisePropertyChanged("DeviceType");
             }
         }
 
-        public string Manufacturer { get; set; }
+        public string Manufacturer
+        {
+            get
+            {
+                return manufacturer;
+            }
+            set
+            {
+                manufacturer = value;
+                RaisePropertyChanged("Manufacturer");
+            }
+        }
 
         public string Model
         {
@@ -106,11 +133,22 @@ namespace SpecSniffer.Model
 
                 //converts many spaces into one.
                 model = Regex.Replace(modelSB.ToString(), @"\s+", " ").Trim();
-
+                RaisePropertyChanged("Model");
             }
         }
 
-        public string Serial { get; set; }
+        public string Serial
+        {
+            get
+            {
+                return serial;
+            }
+            set
+            {
+                serial = value;
+                RaisePropertyChanged("Serial");
+            }
+        }
 
         public string Processor
         {
@@ -127,24 +165,113 @@ namespace SpecSniffer.Model
                 cpuSB.Replace("CPU", "");
 
                 processor = Regex.Replace(cpuSB.ToString(), @"\s+", " ").Trim();
+                RaisePropertyChanged("Processor");
             }
         }
 
-        public string Ram { get; set; }
+        public string Ram
+        {
+            get
+            {
+                return ram;
+            }
+            set
+            {
+                ram = value;
+                RaisePropertyChanged("Ram");
+            }
+        }
 
-        public string Optical { get; set; }
+        public string Optical
+        {
+            get
+            {
+                return optical;
+            }
+            set
+            {
+                optical = value;
+                RaisePropertyChanged("Optical");
+            }
+        }
 
-        public string DiskSize { get; set; }
+        public string DiskSize
+        {
+            get
+            {
+                return diskSize;
+            }
+            set
+            {
+                diskSize = value;
+                RaisePropertyChanged("DiskSize");
+            }
+        }
 
-        public string DiskName { get; set; }
+        public string DiskName
+        {
+            get
+            {
+                return diskName;
+            }
+            set
+            {
+                diskName = value;
+                RaisePropertyChanged("DiskName");
+            }
+        }
 
-        public string DiskSerial { get; set; }
+        public string DiskSerial
+        {
+            get
+            {
+                return diskSerial;
+            }
+            set
+            {
+                diskSerial = value;
+                RaisePropertyChanged("DiskSerial");
+            }
+        }
 
-        public string Diagonal { get; set; }
+        public string Diagonal
+        {
+            get
+            {
+                return diagonal;
+            }
+            set
+            {
+                diagonal = value;
+                RaisePropertyChanged("Diagonal");
+            }
+        }
 
-        public string Resolution { get; set; }
+        public string Resolution
+        {
+            get
+            {
+                return resolution;
+            }
+            set
+            {
+                resolution = value;
+                RaisePropertyChanged("Resolution");
+            }
+        }
 
-        public string GPU { get; set; }
+        public string Gpu
+        {
+            get
+            {
+                return gpu;
+            }
+            set
+            {
+                gpu = value;
+                RaisePropertyChanged("Gpu");
+            }
+        }
 
         public string InstalledOS
         {
@@ -160,12 +287,35 @@ namespace SpecSniffer.Model
                 osNameSB.Replace("Windows 10", "Win10");
 
                 installedOS = Regex.Replace(osNameSB.ToString(), @"\s+", " ").Trim();
+                RaisePropertyChanged("InstalledOS");
             }
         }
 
-        public string VerOS { get; set; }
+        public string VerOS
+        {
+            get
+            {
+                return verOS;
+            }
+            set
+            {
+                verOS = value;
+                RaisePropertyChanged("VerOS");
+            }
+        }
 
-        public string LangOS { get; set; }
+        public string LangOS
+        {
+            get
+            {
+                return langOS;
+            }
+            set
+            {
+                langOS = value;
+                RaisePropertyChanged("LangOS");
+            }
+        }
 
         public string SummarySpec
         {
@@ -185,6 +335,12 @@ namespace SpecSniffer.Model
         public Spec()
         {
 
+        }
+
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }

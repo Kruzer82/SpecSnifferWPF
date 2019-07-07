@@ -20,7 +20,7 @@ namespace SpecSniffer.Model
             GetDisk();
             GetDiagonal();
             GetResolution();
-            CurrentSpec.GPU = GetFromWmi("root\\CIMV2", "Win32_VideoController", "Caption");
+            CurrentSpec.Gpu = GetFromWmi("root\\CIMV2", "Win32_VideoController", "Caption");
             GetOS();
             CurrentSpec.OsKey = GetFromWmi("root\\CIMV2", "SoftwareLicensingService", "OA3xOriginalProductKey");
         }
