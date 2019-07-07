@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace SpecSniffer.Model
 {
-    public class Spec : INotifyPropertyChanged
+    public class SpecLog : INotifyPropertyChanged
     {
         private string model;
 
@@ -26,6 +26,14 @@ namespace SpecSniffer.Model
         private string langOS;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public int Id { get; set; }
+
+        public string Action { get; set; }
+
+        public string SaveID { get; set; }
+
+        public string RP { get; set; }
 
         public string DeviceType
         {
@@ -79,7 +87,7 @@ namespace SpecSniffer.Model
             }
         }
 
-        public string Model
+        public string ModelName
         {
             get
             {
@@ -133,11 +141,11 @@ namespace SpecSniffer.Model
 
                 //converts many spaces into one.
                 model = Regex.Replace(modelSB.ToString(), @"\s+", " ").Trim();
-                RaisePropertyChanged("Model");
+                RaisePropertyChanged("ModelName");
             }
         }
 
-        public string Serial
+        public string ModelSerial
         {
             get
             {
@@ -146,11 +154,13 @@ namespace SpecSniffer.Model
             set
             {
                 serial = value;
-                RaisePropertyChanged("Serial");
+                RaisePropertyChanged("ModelSerial");
             }
         }
 
-        public string Processor
+        public string MotherboardSerial { get; set; }
+
+        public string Cpu
         {
             get
             {
@@ -165,11 +175,11 @@ namespace SpecSniffer.Model
                 cpuSB.Replace("CPU", "");
 
                 processor = Regex.Replace(cpuSB.ToString(), @"\s+", " ").Trim();
-                RaisePropertyChanged("Processor");
+                RaisePropertyChanged("Cpu");
             }
         }
 
-        public string Ram
+        public string RamSize
         {
             get
             {
@@ -178,9 +188,13 @@ namespace SpecSniffer.Model
             set
             {
                 ram = value;
-                RaisePropertyChanged("Ram");
+                RaisePropertyChanged("RamSize");
             }
         }
+
+        public string RamPartNumber { get; set; }
+
+        public string RamSerial { get; set; }
 
         public string Optical
         {
@@ -230,9 +244,10 @@ namespace SpecSniffer.Model
             set
             {
                 diskSerial = value;
-                RaisePropertyChanged("DiskSerial");
             }
         }
+
+        public string DiskSMART { get; set; }
 
         public string Diagonal
         {
@@ -317,22 +332,33 @@ namespace SpecSniffer.Model
             }
         }
 
+        public string OsKey { get; set; }
+
+        public string OsLabel { get; set; }
+
+        public string BatteryHealth { get; set; }
+
+        public string DeviceManager { get; set; }
+
+        public string Comments { get; set; }
+
+
+
         public string SummarySpec
         {
             get
             {
-                return $"{Model}  " +
-                    $"{Processor.Remove(Processor.IndexOf("@")).Trim()}/" +
-                    $"{Ram.Remove(Ram.IndexOf("(")).Trim()}/" +
+                return $"{ModelName}  " +
+                    $"{Cpu.Remove(Cpu.IndexOf("@")).Trim()}/" +
+                    $"{RamSize.Remove(RamSize.IndexOf("(")).Trim()}/" +
                     $"{DiskSize.Replace(Environment.NewLine, "/")}/" +
                     $"{Optical.Replace(Environment.NewLine, "/")}/" +
                     $"{Diagonal}{Resolution}";
             }
         }
 
-        public string OsKey { get; set; }
 
-        public Spec()
+        public SpecLog()
         {
 
         }

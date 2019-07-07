@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Spec.cs" />
+    <Compile Include="SpecLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecReader.cs" />
   </ItemGroup>

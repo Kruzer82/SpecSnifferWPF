@@ -7,14 +7,14 @@ namespace SpecSniffer.Model
 {
     public class SpecReader
     {
-        public  Spec CurrentSpec { get; set; } = new Spec();
+        public  SpecLog CurrentSpec { get; set; } = new SpecLog();
 
         public SpecReader()
         {
             GetDeviceType();
             GetManufacturerModelSerial();
-
-            CurrentSpec.Processor= GetFromWmi("root\\CIMV2", "Win32_Processor", "Name");
+            CurrentSpec.MotherboardSerial = GetFromWmi("root\\CIMV2", "Win32_BaseBoard", "SerialNumber");
+            CurrentSpec.Cpu= GetFromWmi("root\\CIMV2", "Win32_Processor", "Name");
             GetRam();
             CurrentSpec.Optical = GetFromWmi("root\\CIMV2", "Win32_CDROMDrive", "MediaType");
             GetDisk();
@@ -52,40 +52,46 @@ namespace SpecSniffer.Model
 
             if (CurrentSpec.Manufacturer== "LENOVO")
             {
-                CurrentSpec.Model= GetFromWmi("root\\CIMV2", "Win32_ComputerSystemProduct", "Version");
+                CurrentSpec.ModelName= GetFromWmi("root\\CIMV2", "Win32_ComputerSystemProduct", "Version");
 
                 //format serial
                 string pn = GetFromWmi("root\\CIMV2", "Win32_ComputerSystem", "Model").ToLower();
-                CurrentSpec.Serial = $"S1{pn}{serial}";
+                CurrentSpec.ModelSerial = $"S1{pn}{serial}";
             }
             else
             {
-                CurrentSpec.Model = GetFromWmi("root\\CIMV2", "Win32_ComputerSystem", "Model");
-                CurrentSpec.Serial = serial;
+                CurrentSpec.ModelName = GetFromWmi("root\\CIMV2", "Win32_ComputerSystem", "Model");
+                CurrentSpec.ModelSerial = serial;
             }
         }
 
         private void GetRam()
         {
-            List<object> ramList = new List<object>();
+            List<object> ramSizeObj = new List<object>();
+            List<string> ramPartNumber = new List<string>();
+            List<string> ramSerialNumber = new List<string>();
             try
             {
                 //get ram as object list
                 foreach (var queryObj in new ManagementObjectSearcher("root\\CIMV2",
-                   $"SELECT Capacity " +
+                   $"SELECT Capacity,PartNumber,SerialNumber " +
                    $"FROM Win32_PhysicalMemory").Get())
                 {
-                    ramList.Add(queryObj["Capacity"]);
+                    ramSizeObj.Add(queryObj["Capacity"]);
+                    ramPartNumber.Add(queryObj["PartNumber"].ToString().Trim());
+                    ramSerialNumber.Add(queryObj["SerialNumber"].ToString().Trim());
                 }
                 //converts to intlist
-                var ramInt = ramList
+                var ramSizeInt = ramSizeObj
                 .OfType<ulong>()
                 .Select(s => s / (1024 * 1024 * 1024))
                 .Select(Convert.ToInt32)
                 .ToList();
 
                 //return full RAM and RAM per bank
-                CurrentSpec.Ram= string.Format($"{ramInt.Sum().ToString()}GB ({string.Join("+", ramInt)})");
+                CurrentSpec.RamSize= string.Format($"{ramSizeInt.Sum().ToString()}GB ({string.Join("+", ramSizeInt)})");
+                CurrentSpec.RamPartNumber = string.Join(Environment.NewLine, ramPartNumber).Trim();
+                CurrentSpec.RamSerial = string.Join(Environment.NewLine, ramSerialNumber);
             }
             catch (Exception)
             {
@@ -299,7 +305,7 @@ namespace SpecSniffer.Model
                     $"SELECT {scopeProperty} " +
                     $"FROM {scopeClass}").Get())
                 {
-                    propertyValue.Add(queryObj[scopeProperty].ToString());
+                    propertyValue.Add(queryObj[scopeProperty].ToString().Trim());
                 }
             }
             catch (Exception)

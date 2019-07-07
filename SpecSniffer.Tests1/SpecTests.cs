@@ -14,23 +14,23 @@ namespace SpecSniffer.Tests
         [TestMethod()]
         public void SetModelValueTest()
         {
-            Spec specLenovo = new Spec();
-            Spec specDell = new Spec();
-            Spec specHp = new Spec();
-            Spec specFujitsu = new Spec();
-            Spec specOther = new Spec();
+            SpecLog specLenovo = new SpecLog();
+            SpecLog specDell = new SpecLog();
+            SpecLog specHp = new SpecLog();
+            SpecLog specFujitsu = new SpecLog();
+            SpecLog specOther = new SpecLog();
 
 
             specLenovo.Manufacturer = "LENOVO";
-            specLenovo.Model = "ThinkPad W540  ";
+            specLenovo.ModelName = "ThinkPad W540  ";
             specDell.Manufacturer = "DELL INC.";
-            specDell.Model = "OptiPlex7010 Tower ";
+            specDell.ModelName = "OptiPlex7010 Tower ";
             specHp.Manufacturer = "HEWLETT-PACKARD";
-            specHp.Model = "HP COMPAQ   8300 Pro";
+            specHp.ModelName = "HP COMPAQ   8300 Pro";
             specFujitsu.Manufacturer = "FUJITSU";
-            specFujitsu.Model = "LIFEBOOK S710 ";
+            specFujitsu.ModelName = "LIFEBOOK S710 ";
             specOther.Manufacturer = "";
-            specOther.Model = "Alienware G25";
+            specOther.ModelName = "Alienware G25";
 
             string lenovoModel = "W540";
             string dellModel = "7010 TWR";
@@ -39,19 +39,19 @@ namespace SpecSniffer.Tests
             string otherModel = "Alienware G25";
 
 
-            Assert.AreEqual(lenovoModel, specLenovo.Model);
-            Assert.AreEqual(dellModel, specDell.Model);
-            Assert.AreEqual(hpModel, specHp.Model);
-            Assert.AreEqual(fujitsuModel, specFujitsu.Model);
-            Assert.AreEqual(otherModel, specOther.Model);
+            Assert.AreEqual(lenovoModel, specLenovo.ModelName);
+            Assert.AreEqual(dellModel, specDell.ModelName);
+            Assert.AreEqual(hpModel, specHp.ModelName);
+            Assert.AreEqual(fujitsuModel, specFujitsu.ModelName);
+            Assert.AreEqual(otherModel, specOther.ModelName);
         }
 
         [TestMethod()]
         public void SetDeviceTypeValueTest()
         {
-            Spec singleType = new Spec();
-            Spec doubleType = new Spec();
-            Spec multiType = new Spec();
+            SpecLog singleType = new SpecLog();
+            SpecLog doubleType = new SpecLog();
+            SpecLog multiType = new SpecLog();
 
             singleType.DeviceType = "9";
             doubleType.DeviceType = "1/10";

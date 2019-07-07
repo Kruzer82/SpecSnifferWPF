@@ -12,16 +12,19 @@ namespace SpecSniffer.Tests
         public void ViewSpecValuesTest()
         {
 
-            Spec expectedSpec;
-            Spec actualSpec;
+            SpecLog expectedSpec;
+            SpecLog actualSpec;
             DisplayedSpec displayedSpec = new DisplayedSpec();
-            expectedSpec = new Spec()
+            expectedSpec = new SpecLog()
             {
                 Manufacturer = "LENOVO",
-                Model = "P50",
-                Serial = "S120en0005mbPC0C3D4N",
-                Processor = "i7-6700HQ CPU @ 2.60GHz",
-                Ram = "16GB (8+8)",
+                ModelName = "P50",
+                ModelSerial = "S120en0005mbPC0C3D4N",
+                MotherboardSerial= "L1HF63Y00TV",
+                Cpu = "i7-6700HQ CPU @ 2.60GHz",
+                RamSize = "16GB (8+8)",
+                RamPartNumber=$"M471A1G43DB0-CPB{Environment.NewLine}M471A1G43DB0-CPB",
+                RamSerial=$"9244AF5B{Environment.NewLine}120BAC8E",
                 Optical = "",
                 DiskName = "INTEL SSDPEKKF256G7H",
                 DiskSize = "256SSD",
@@ -38,10 +41,13 @@ namespace SpecSniffer.Tests
 
 
             Assert.AreEqual(expectedSpec.Manufacturer, actualSpec.Manufacturer, "Manufacturer value not equal.");
-            Assert.AreEqual(expectedSpec.Model, actualSpec.Model, "Model value not equal.");
-            Assert.AreEqual(expectedSpec.Serial, actualSpec.Serial, "Serial value not equal.");
-            Assert.AreEqual(expectedSpec.Processor, actualSpec.Processor, "Processor value not equal.");
-            Assert.AreEqual(expectedSpec.Ram, actualSpec.Ram, "Ram value not equal.");
+            Assert.AreEqual(expectedSpec.ModelName, actualSpec.ModelName, "Model value not equal.");
+            Assert.AreEqual(expectedSpec.ModelSerial, actualSpec.ModelSerial, "Serial value not equal.");
+            Assert.AreEqual(expectedSpec.MotherboardSerial, actualSpec.MotherboardSerial, "MotherboardSerial value not equal.");
+            Assert.AreEqual(expectedSpec.Cpu, actualSpec.Cpu, "Processor value not equal.");
+            Assert.AreEqual(expectedSpec.RamSize, actualSpec.RamSize, "Ram value not equal.");
+            Assert.AreEqual(expectedSpec.RamPartNumber, actualSpec.RamPartNumber, "RamPartNumber value not equal.");
+            Assert.AreEqual(expectedSpec.RamSerial, actualSpec.RamSerial, "RamSerial value not equal.");
             Assert.AreEqual(expectedSpec.Optical, actualSpec.Optical, "Optical value not equal.");
 
             Assert.AreEqual(expectedSpec.DiskName, actualSpec.DiskName, "DiskName value not equal.");

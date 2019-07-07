@@ -90,22 +90,22 @@
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Model:"  Style="{StaticResource SpecLabel}" />
-                                    <TextBox Text="{Binding ViewSpec.Model, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.ModelName, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Serial Number:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewSpec.Serial, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.ModelSerial, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal"  Margin="0,20,0,0">
                                     <Label Content="Processor:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewSpec.Processor, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.Cpu, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="RAM:"  Style="{StaticResource SpecLabel}"/>
-                                    <TextBox Text="{Binding ViewSpec.Ram, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
+                                    <TextBox Text="{Binding ViewSpec.RamSize, Mode=TwoWay}" Style="{StaticResource SpecTxtBox}"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
@@ -217,15 +217,16 @@
 
                 </Grid>
             </TabItem>
-
-            <TabItem Header="Drivers"></TabItem>
-
-            <TabItem Header="Log">
-
-
-            </TabItem>
-            <TabItem Header="Licenses"></TabItem>
             <TabItem Header="Diagnostics"></TabItem>
+
+            
+            
+            
+            
+            
+            
+            <TabItem Header="Drivers"></TabItem>
+            <TabItem Header="Licenses"></TabItem>
 
         </TabControl>
 
