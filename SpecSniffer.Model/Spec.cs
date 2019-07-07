@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace SpecSniffer.Model
@@ -10,6 +11,7 @@ namespace SpecSniffer.Model
         private string deviceType;
         private string processor;
         private string installedOS;
+
 
         public string DeviceType
         {
@@ -164,6 +166,20 @@ namespace SpecSniffer.Model
         public string VerOS { get; set; }
 
         public string LangOS { get; set; }
+
+
+        public string SummarySpec
+        {
+            get
+            {
+                return $"{Model}  " +
+                    $"{Processor.Remove(Processor.IndexOf("@")).Trim()}/" +
+                    $"{Ram.Remove(Ram.IndexOf("(")).Trim()}/" +
+                    $"{DiskSize.Replace("/", Environment.NewLine)}/" +
+                    $"{Optical}/" +
+                    $"{Diagonal}{Resolution}";
+            }
+        }
 
         public Spec()
         {

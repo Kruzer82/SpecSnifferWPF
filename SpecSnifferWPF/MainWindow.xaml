@@ -39,7 +39,9 @@
         </Style>
     </Window.Resources>
     <Grid>
-
+        <Grid.DataContext>
+            <vm:DisplayedSpec/>
+        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="80*"/>
@@ -63,7 +65,7 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <Viewbox Grid.Row="1">
-            <TextBlock Margin="45,0,45,0" FontFamily="Leelawadee UI Semilight"> E7440  i7-4600M/16GB4/250SSD/512SSD/DVD/15.6FHD/K2000M</TextBlock>
+            <TextBlock Text="{Binding ViewSpec.SummarySpec}" Margin="45,0,45,0" FontFamily="Leelawadee UI Semilight"/>
         </Viewbox>
 
 
@@ -79,9 +81,9 @@
                     
                     
                     <Border Grid.Column="0" Margin="10,10,10,10" Background="#FFD7D8D8">
-                        <Border.DataContext>
+                        <!--<Border.DataContext>
                             <vm:DisplayedSpec/>
-                        </Border.DataContext>
+                        </Border.DataContext>-->
 
                         <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
                             <StackPanel>

@@ -16,6 +16,7 @@ namespace SpecSniffer.ViewModel
         {
             SpecReader specReader = new SpecReader();
             ViewSpec = specReader.CurrentSpec;
+
         }
     }
 }

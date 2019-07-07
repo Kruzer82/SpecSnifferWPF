@@ -29,7 +29,7 @@ namespace SpecSniffer.Tests
                 Diagonal = $@"23""",
                 Resolution = "FHD",
                 GPU = $"NVIDIA Quadro M1000M{Environment.NewLine}Intel(R) HD Graphics 530",
-                InstalledOS = "Windows 10 Pro",
+                InstalledOS = "Win10 Pro",
                 VerOS = "18362",
                 LangOS = "PL"
             };
